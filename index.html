@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script crossorigin
+            src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin
+            src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <title>React-1</title>
+        <style>
+            .container{
+                max-width: 1140px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 15px;
+            }
+            .box{
+                margin-left: 400px;
+                width: 420px;
+                margin-top: 200px;
+            }
+            .box input{
+                width: 300px;
+                height: 30px;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+          
+
+          let empty= "No Any Data!"
+           let fiveless= "You inserted up to 5 information : "
+           let fivemore= "You inserted more than 5 information : "
+            
+
+            let holder= 'Type here'
+            function App() {
+                const [text, setText] = React.useState("")
+
+               return(
+               <div className="container">
+                    
+      <div className="box">
+        <input type="text" placeholder={holder} value={text} onChange={(event)=>setText(event.target.value)}/>                    
+        <h2>{text? (text.length<=5? fiveless+text : fivemore+text ) : empty}</h2>
+      </div>         
+
+                </div>
+               )
+            }
+
+            const app = document.getElementById('root')
+            const root = ReactDOM.createRoot(app)
+            root.render(<App/>)
+    </script>
+    </body>
+</html>
